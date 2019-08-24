@@ -35,15 +35,22 @@ func dmenu(list []string, max int, tool string) (string, error) {
 	}
 
 	var args []string
-	if tool == "dmenu" {
+	switch tool {
+	case "dmenu":
 		args = []string{"dmenu", "-b",
 			"-fn",
 			"-misc-dejavu sans mono-medium-r-normal--17-120-100-100-m-0-iso8859-16",
 			"-l",
 			strconv.Itoa(max)}
-	} else {
+	case "rofi":
 		args = []string{"rofi", "-dmenu",
 			"-lines",
+			strconv.Itoa(max)}
+	case "dmenu-wayland":
+		args = []string{"dmenu-wl_run", "-i", "-b",
+			"-fn",
+			"-misc-dejavu sans mono-medium-r-normal--17-120-100-100-m-0-iso8859-16",
+			"-l",
 			strconv.Itoa(max)}
 	}
 
