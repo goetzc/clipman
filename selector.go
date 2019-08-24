@@ -46,8 +46,8 @@ func dmenu(list []string, max int, tool string) (string, error) {
 		args = []string{"rofi", "-dmenu",
 			"-lines",
 			strconv.Itoa(max)}
-	case "dmenu-wayland":
-		args = []string{"dmenu-wl_run", "-i", "-b",
+	case "dmenu-wl":
+		args = []string{"dmenu-wl", "-i", "-b",
 			"-fn",
 			"-misc-dejavu sans mono-medium-r-normal--17-120-100-100-m-0-iso8859-16",
 			"-l",
